@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import { useTodos } from '../../hooks/useTodos';
-import { createNewTodo, deleteTodo } from '../../services/todos';
+import { createNewTodo } from '../../services/todos';
 import Todo from '../Todo/Todo';
 
 export default function Todos() {
@@ -27,7 +27,7 @@ export default function Todos() {
         <button onClick={handleAddTodo}>Add</button>
       </div>
       <div className='todos'>
-        {todos.map(todo => <Todo key={todo.id} { ...todo } setTodos={setTodos} />)}
+        {todos.map(todo => <Todo key={todo.id} { ...todo } setTodos={setTodos} todos={todos} />)}
       </div>
     </div>
   );
