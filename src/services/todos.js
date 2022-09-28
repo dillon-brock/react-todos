@@ -6,7 +6,7 @@ export async function getTodos() {
   return checkError(response);
 }
 
-export async function addTodo(description) {
+export async function createNewTodo(description) {
   const response = await client.from('todos').insert({ description });
 
   return checkError(response);
