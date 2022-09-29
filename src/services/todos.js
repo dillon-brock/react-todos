@@ -36,3 +36,12 @@ export async function completeTodo(id, complete) {
   
   return checkError(response);
 }
+
+export async function getTodoById(id) {
+  const response = await client
+    .from('todos')
+    .select()
+    .match({ id });
+  
+  return checkError(response);
+}

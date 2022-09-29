@@ -1,23 +1,20 @@
-import { useState } from 'react';
 import { completeTodo, deleteTodo } from '../../services/todos';
 import './Todo.css';
 
-export default function Todo({ id, description, complete, setTodos }) {
-  const [completed, setCompleted] = useState(complete);
-
-  const handleDeleteTodo = async (id) => {
+export default function Todo({ id, complete, description, setTodos }) {
+  const handleDeleteTodo = async () => {
     await deleteTodo(id);
     setTodos(prevTodos => prevTodos.filter(todo => id !== todo.id));
   };
 
   const handleCompleteTodo = async () => {
-    setCompleted(prev => !prev);
-    await completeTodo(id, !completed);
+    await completeTodo(id, !complete);
+    setTodos(prev => prev.map(todo => todo.id === id ? { ...todo, complete: !todo.complete } : todo));
   };
 
   return (
     <div className='todo'>
-      <input type='checkbox' onChange={handleCompleteTodo} />
+      <input type='checkbox' checked={complete} onChange={handleCompleteTodo} />
       <h4 className='todo-description'>{description}</h4>
       <button className='delete-todo-button' onClick={() => {
         handleDeleteTodo(id);
