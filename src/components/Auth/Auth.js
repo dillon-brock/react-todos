@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { NavLink, Redirect, useParams } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import { authUser } from '../../services/auth';
+import './Auth.css';
 
 export default function Auth() {
   const [email, setEmail] = useState('');
@@ -21,24 +22,24 @@ export default function Auth() {
 
   return (
     <div className='auth-container'>
-      <div className='auth-links'>
-        <NavLink className='auth-link' to='/auth/sign-in'>Sign In</NavLink>
-        <NavLink className='auth-link' to='/auth/sign-up'>Sign Up</NavLink>
-      </div>
-      <div className='auth-form'>
-        <label>
-          Email
-          <input type='text' placeholder='name@example.com' value={email} onChange={(e) => {
-            setEmail(e.target.value);
-          }} />
-        </label>
-        <label>
-          Password
-          <input type='password' placeholder='Password' value={password} onChange={(e) => {
-            setPassword(e.target.value);
-          }} />
-        </label>
-        <button className='auth-submit' onClick={submitAuth}>Submit</button>
+      <div className='auth-form box'>
+        <div className="field">
+          <label className="label">Email</label>
+          <div className="control">
+            <input className="input" type='text' placeholder='name@example.com' value={email} onChange={(e) => {
+              setEmail(e.target.value);
+            }} />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Password</label>
+          <div className="control">
+            <input className="input" type='password' placeholder='Password' value={password} onChange={(e) => {
+              setPassword(e.target.value);
+            }} />
+          </div>
+        </div>
+        <button className='button is-primary auth-submit' onClick={submitAuth}>Submit</button>
       </div>
     </div>
   );

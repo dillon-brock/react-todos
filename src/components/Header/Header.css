@@ -1,0 +1,45 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
+header {
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth-links {
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 150px;
+}
+
+.title:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.active {
+  border-bottom: 4px solid #00D1B2;
+  font-weight: 700;
+}
+
+.sign-out-button {
+  margin-top: 0;
+}
+
+.user-info {
+  position: absolute;
+  top: 10px;
+  right: 150px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.add-todo {
+  margin-top: 50px;
+}
+
+.add-todo-input {
+  width: 400px;
+}

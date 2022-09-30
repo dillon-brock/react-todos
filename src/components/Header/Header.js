@@ -1,6 +1,8 @@
 import { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import { signOut } from '../../services/auth';
+import './Header.css';
 
 export default function Header() {
   const { user, setUser } = useContext(UserContext);
@@ -17,12 +19,18 @@ export default function Header() {
 
   return (
     <header>
-      <h1 className='title'>TODOS</h1>
+      <h1 className='title is-1'>TODOS</h1>
+      {!user && (
+        <div className='auth-links'>
+          <NavLink className='auth-link navbar-item sign-in' to='/auth/sign-in'>Sign In</NavLink>
+          <NavLink className='auth-link navbar-item sign-up' to='/auth/sign-up'>Sign Up</NavLink>
+        </div>
+      )}
       {user && (
-        <>
+        <div className="user-info">
           <h3>hello {user.email}</h3>
-          <button className='sign-out-button' onClick={handleSignOut}>Sign Out</button>
-        </>
+          <button className='sign-out-button button is-link' onClick={handleSignOut}>Sign Out</button>
+        </div>
       )}
     </header>
   );

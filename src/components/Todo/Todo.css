@@ -1,3 +1,19 @@
 .todo-description {
   display: inline-block;
 }
+
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
+
+.todo {
+  margin-top: 10px;
+}

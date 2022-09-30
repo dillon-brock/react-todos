@@ -21,10 +21,10 @@ export default function Todos() {
   return (
     <div className='main'>
       <div className='add-todo'>
-        <input type='text' placeholder='New Todo' value={description} onChange={(e) => {
+        <input className="input add-todo-input" type='text' placeholder='New Todo' value={description} onChange={(e) => {
           setDescription(e.target.value);
         }} />
-        <button onClick={handleAddTodo}>Add</button>
+        <button className="button is-success add-todo-button" onClick={handleAddTodo}>Add</button>
       </div>
       <div className='todos'>
         {todos.map(todo => <Todo key={todo.id} { ...todo } setTodos={setTodos} todos={todos} />)}

@@ -16,7 +16,7 @@ export default function Todo({ id, complete, description, setTodos }) {
     <div className='todo'>
       <input type='checkbox' checked={complete} onChange={handleCompleteTodo} />
       <h4 className='todo-description'>{description}</h4>
-      <button className='delete-todo-button' onClick={() => {
+      <button className='delete-todo-button button is-danger' onClick={() => {
         handleDeleteTodo(id);
       }}>x</button>
     </div>
